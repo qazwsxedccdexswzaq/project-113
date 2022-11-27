@@ -1,4 +1,8 @@
+noseX=0;
+noseY=0;
+
 function preload(){
+    m=loadImage('https://i.postimg.cc/3x3QzSGq/m.png');
 }
 
 function setup() {
@@ -16,6 +20,7 @@ function setup() {
 
 function draw(){
     image(video,0,0,400,400);
+    image(m,noseX-12,noseY+10,30,30);
 }
 
 function gotPoses(results)
@@ -23,8 +28,10 @@ function gotPoses(results)
     if(results.length>0)
     {
         console.log(results);
-        console.log("nose x is ="+results[0].pose.nose.x);
-        console.log("nose y is ="+results[0].pose.nose.y);
+        noseX=results[0].pose.nose.x;
+        noseY=results[0].pose.nose.y;
+        console.log("nose x is ="+noseX);
+        console.log("nose y is ="+noseY);
     }
 }
 
